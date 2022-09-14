@@ -6,14 +6,17 @@ import { Container, Header } from "neetoui/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 
-import { NOTES_CARD_DATA as notesData } from "./constants";
+import { NOTES_CARD_DATA } from "./constants";
+import DeleteAlert from "./DeleteAlert";
 import Menu from "./Menu";
 import Note from "./Note";
 
 const Notes = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [openMenuBar, setOpenMenuBar] = useState(true);
+  const [notes, setNotes] = useState(NOTES_CARD_DATA);
+  const [selectedNoteId, setSelectedNoteId] = useState([]);
 
   return (
     <>
@@ -35,12 +38,15 @@ const Notes = () => {
             onChange: e => setSearchTerm(e.target.value),
           }}
         />
-        {notesData.length ? (
-          <>
-            {notesData.map(note => (
-              <Note key={note.id} note={note} />
-            ))}
-          </>
+        {notes.length ? (
+          notes.map(note => (
+            <Note
+              key={note.id}
+              note={note}
+              setSelectedNoteId={setSelectedNoteId}
+              setShowDeleteAlert={setShowDeleteAlert}
+            />
+          ))
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
@@ -48,6 +54,14 @@ const Notes = () => {
             primaryActionLabel="Add New Note"
             subtitle="Add your notes to send customized emails to them."
             title="Looks like you don't have any notes!"
+          />
+        )}
+        {showDeleteAlert && (
+          <DeleteAlert
+            selectedNoteId={selectedNoteId}
+            setNotes={setNotes}
+            setShowDeleteAlert={setShowDeleteAlert}
+            onClose={() => setShowDeleteAlert(false)}
           />
         )}
       </Container>
