@@ -8,7 +8,7 @@ const DeleteAlert = ({
   setNotes,
   setShowDeleteAlert,
 }) => {
-  const deleteNote = noteId => {
+  const handleDelete = noteId => {
     setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId));
     setShowDeleteAlert(false);
   };
@@ -20,7 +20,7 @@ const DeleteAlert = ({
       title="Delete Note"
       onClose={onClose}
       onSubmit={() => {
-        deleteNote(selectedNoteId);
+        handleDelete(selectedNoteId);
       }}
     />
   );
