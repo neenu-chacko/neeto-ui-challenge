@@ -3,7 +3,7 @@ import React from "react";
 import { MenuHorizontal } from "neetoicons";
 import { Avatar, Typography, Dropdown } from "neetoui";
 
-export const Column = [
+export const Column = setShowDeleteAlert => [
   {
     title: "Name & Role",
     dataIndex: "name",
@@ -46,7 +46,7 @@ export const Column = [
       <div>
         <Dropdown buttonStyle="text" icon={MenuHorizontal}>
           <li> Edit </li>
-          <li onClick={() => {}}>Delete</li>
+          <li onClick={() => setShowDeleteAlert(true)}>Delete</li>
         </Dropdown>
       </div>
     ),
