@@ -7,7 +7,7 @@ import { TABLE_ROW_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import Menu from "./Menu";
 import NewContactPane from "./Pane/Create";
-import { Column } from "./Table/Column";
+import { buildContactColumnData } from "./utils";
 
 const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,7 +36,7 @@ const Contacts = () => {
         />
         <Table
           allowRowClick
-          columnData={Column(setShowDeleteAlert)}
+          columnData={buildContactColumnData(setShowDeleteAlert)}
           rowData={TABLE_ROW_DATA}
           onRowClick={() => {}}
         />
