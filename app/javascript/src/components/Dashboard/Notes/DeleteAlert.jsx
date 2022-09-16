@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Alert } from "neetoui";
+import { Alert, Toastr } from "neetoui";
 
 const DeleteAlert = ({
   onClose,
@@ -11,6 +11,7 @@ const DeleteAlert = ({
   const handleDelete = noteId => {
     setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId));
     setShowDeleteAlert(false);
+    Toastr.success("Note Deleted");
   };
 
   return (
