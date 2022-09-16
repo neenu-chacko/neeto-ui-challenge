@@ -7,19 +7,19 @@ import { TABLE_ROW_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import Menu from "./Menu";
 import NewContactPane from "./Pane/Create";
-import { Column } from "./Table/Column";
+import { buildContactColumnData } from "./utils";
 
 const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [openMenuBar, setOpenMenuBar] = useState(true);
+  const [showMenuBar, setShowMenuBar] = useState(false);
   const [showContactPane, setShowContactPane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   return (
     <>
-      <Menu showMenu={openMenuBar} />
+      <Menu showMenu={showMenuBar} />
       <Container>
         <Header
-          menuBarToggle={() => setOpenMenuBar(open => !open)}
+          menuBarToggle={() => setShowMenuBar(open => !open)}
           title="All Contacts"
           actionBlock={
             <Button
@@ -36,7 +36,7 @@ const Contacts = () => {
         />
         <Table
           allowRowClick
-          columnData={Column(setShowDeleteAlert)}
+          columnData={buildContactColumnData(setShowDeleteAlert)}
           rowData={TABLE_ROW_DATA}
           onRowClick={() => {}}
         />
