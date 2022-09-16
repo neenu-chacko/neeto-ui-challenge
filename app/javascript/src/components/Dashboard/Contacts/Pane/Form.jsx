@@ -53,6 +53,7 @@ const Form = ({ onClose, isEdit }) => {
               className="w-full flex-grow-0"
               label="Email"
               name="email"
+              placeholder="Enter e-mail address"
               type="email"
             />
             <Select
