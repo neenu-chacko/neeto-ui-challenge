@@ -3,7 +3,7 @@ import React from "react";
 import { Clock, MenuVertical } from "neetoicons";
 import { Avatar, Dropdown, Tag, Tooltip, Typography } from "neetoui";
 
-import { createdAt, formatTime } from "./utils";
+import { lastCreatedAt, formatTime } from "./utils";
 
 const Note = ({ note, setShowDeleteAlert, setSelectedNoteId }) => (
   <div className="mb-3 w-full  border border-gray-300 bg-white p-4 shadow-md  dark:border-gray-700 dark:bg-gray-800 ">
@@ -41,7 +41,7 @@ const Note = ({ note, setShowDeleteAlert, setSelectedNoteId }) => (
         <Clock size={15} />
         <Tooltip content={formatTime(note.createdAt)} position="bottom">
           <Typography style="body3">
-            Created {createdAt(note.createdAt)}
+            Created {lastCreatedAt(note.createdAt)}
           </Typography>
         </Tooltip>
         <Avatar
