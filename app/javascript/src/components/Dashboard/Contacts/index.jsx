@@ -5,7 +5,7 @@ import { Container, Header } from "neetoui/layouts";
 
 import { TABLE_ROW_DATA } from "./constants";
 import Menu from "./Menu";
-import { tableColumnData } from "./Table/Column";
+import { Column } from "./Table/Column";
 
 const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,7 +29,7 @@ const Contacts = () => {
         />
         <Table
           allowRowClick
-          columnData={tableColumnData}
+          columnData={Column}
           rowData={TABLE_ROW_DATA}
           onRowClick={() => {}}
         />

@@ -3,7 +3,7 @@ import React from "react";
 import { MenuHorizontal } from "neetoicons";
 import { Avatar, Typography, Dropdown } from "neetoui";
 
-export const tableColumnData = [
+export const Column = [
   {
     title: "Name & Role",
     dataIndex: "name",

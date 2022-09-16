@@ -4,6 +4,7 @@ export const TABLE_ROW_DATA = [
     role: "Owner",
     email: "alber@borer.com",
     createdAt: "Feb 8, 2021",
+    profile: "",
   },
   {
     name: "Jacob Jones",
@@ -17,6 +18,7 @@ export const TABLE_ROW_DATA = [
     role: "Owner",
     email: "alber@borer.com",
     createdAt: "Feb 18, 2021",
+    profile: "",
   },
   {
     name: "Jacob Jones",
@@ -30,5 +32,6 @@ export const TABLE_ROW_DATA = [
     role: "Owner",
     email: "alber@borer.com",
     createdAt: "Feb 18, 2021",
+    profile: "",
   },
 ];
