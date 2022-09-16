@@ -15,17 +15,17 @@ import NewNotePane from "./Pane/Create";
 const Notes = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
-  const [openMenuBar, setOpenMenuBar] = useState(true);
+  const [showMenuBar, setShowMenuBar] = useState(false);
   const [notes, setNotes] = useState(NOTES_CARD_DATA);
   const [selectedNoteId, setSelectedNoteId] = useState([]);
   const [showNewNotePane, setShowNewNotePane] = useState(false);
 
   return (
     <>
-      <Menu showMenu={openMenuBar} />
+      <Menu showMenu={showMenuBar} />
       <Container>
         <Header
-          menuBarToggle={() => setOpenMenuBar(open => !open)}
+          menuBarToggle={() => setShowMenuBar(open => !open)}
           title=" All Notes"
           actionBlock={
             <Button
